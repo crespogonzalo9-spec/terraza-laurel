@@ -500,6 +500,45 @@
     }
     .map-link-icon { font-size: 1.4rem; }
 
+    /* ─── MAP EMBED ─── */
+    .map-embed-wrap {
+      margin-top: 3rem;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(200,152,64,.18);
+      position: relative;
+    }
+    .map-embed-wrap iframe {
+      display: block; width: 100%; height: 360px;
+      border: none; filter: grayscale(20%) contrast(1.05);
+    }
+    .map-open-btn {
+      display: inline-flex; align-items: center; gap: .6rem;
+      margin-top: 1rem;
+      padding: .75rem 1.6rem;
+      background: var(--amber);
+      color: var(--dark);
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: .75rem; letter-spacing: .18em; text-transform: uppercase;
+      font-weight: 700;
+      transition: .2s;
+    }
+    .map-open-btn:hover { background: var(--amber-lt); transform: translateY(-2px); }
+    .contact-dm {
+      display: flex; align-items: center; gap: .7rem;
+      margin-top: 1.2rem;
+      padding: .9rem 1.2rem;
+      background: rgba(200,152,64,.08);
+      border: 1px solid rgba(200,152,64,.2);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: .2s;
+    }
+    .contact-dm:hover { background: rgba(200,152,64,.15); border-color: var(--amber); }
+    .contact-dm span { font-size: .82rem; color: rgba(255,255,255,.7); line-height: 1.4; }
+    .contact-dm span strong { color: var(--amber); display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: .1rem; }
+
     /* ─── FOOTER ─── */
     footer {
       background: #0E0806;
@@ -893,12 +932,16 @@
         <div class="info-block">
           <h3>📍 Dónde estamos</h3>
           <p>
-            <strong>Calle del Laurel</strong><br>
+            <strong>Calle San Agustín 8</strong><br>
             26001 Logroño, La Rioja<br>
             España
           </p>
           <br>
-          <p>En el corazón del pintxo-pote más famoso de España. Búscanos en la calle más viva de Logroño.</p>
+          <p>En el corazón de la Zona de Laurel, la calle más viva de Logroño. Junto a la travesía de Laurel.</p>
+          <br>
+          <a href="https://www.google.com/maps/search/Calle+San+Agust%C3%ADn+8+Logro%C3%B1o" target="_blank" rel="noopener" class="map-open-btn">
+            🗺️ Abrir en Google Maps
+          </a>
         </div>
         <div class="info-block">
           <h3>🕐 Horario</h3>
@@ -912,17 +955,27 @@
         </div>
         <div class="info-block">
           <h3>📱 Contacto</h3>
-          <p><strong>Instagram</strong><br>@terrazadelaurel</p>
+          <p>No disponemos de teléfono público.<br>Escríbenos directamente por Instagram:</p>
           <br>
-          <p><strong>Reservas de grupos</strong><br>Consúltanos por Instagram para reservas de grupos y eventos privados.</p>
+          <a href="https://www.instagram.com/terrazadelaurel/" target="_blank" rel="noopener" class="contact-dm">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--amber)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span><strong>Instagram DM</strong>@terrazadelaurel</span>
+          </a>
           <br>
-          <p style="font-size:.78rem;color:rgba(255,255,255,.25);">No se toman reservas para la terraza. Ven y disfruta.</p>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.25);">Reservas de grupos y eventos por DM.<br>No se toman reservas de terraza.</p>
         </div>
       </div>
-      <a href="https://maps.google.com/?q=Calle+del+Laurel+Logro%C3%B1o+La+Rioja+Spain" target="_blank" rel="noopener" class="map-link fade-in">
-        <span class="map-link-icon">🗺️</span>
-        <span>Abrir en Google Maps · Calle del Laurel, Logroño</span>
-      </a>
+
+      <!-- GOOGLE MAPS EMBED -->
+      <div class="map-embed-wrap fade-in">
+        <iframe
+          src="https://maps.google.com/maps?q=Calle+San+Agust%C3%ADn+8+Logro%C3%B1o+La+Rioja+Spain&output=embed"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Terraza de Laurel — Calle San Agustín 8, Logroño">
+        </iframe>
+      </div>
     </div>
   </section>
 
@@ -938,7 +991,7 @@
       </a>
     </div>
     <div class="footer-divider"></div>
-    <p class="footer-copy">© 2025 Terraza de Laurel · Calle del Laurel, Logroño · La Rioja, España</p>
+    <p class="footer-copy">© 2025 Terraza de Laurel · Calle San Agustín 8, Logroño · La Rioja, España</p>
   </footer>
 
   <script>
